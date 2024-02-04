@@ -48,8 +48,8 @@ lbl = tkinter.Label(mywnd,
 lbl.place(x=10, y=20)
 
 
-myimg = tkinter.PhotoImage(file='imgPython.png') # only png!!!
-l_logo = tkinter.Label(mywnd, image=myimg)
+myimg_png = tkinter.PhotoImage(file='imgPython.png') # only png!!!
+l_logo = tkinter.Label(mywnd, image=myimg_png)
 l_logo.pack()
 
 
@@ -71,9 +71,13 @@ def load_img():
     if response.status_code!=200:
         lbl['text'] = 'immage not found'
     else:
-        img_from_url = ImageTk.PhotoImage(Image.open(BytesIO(response.content)).resize((100, 200), Image.ANTIALIAS))
+        img_from_url = ImageTk.PhotoImage(Image.open(BytesIO(response.content)).resize((100, 200), Image.LANCZOS))
         l_urlPic.config(image=img_from_url)
         l_urlPic.image = img_from_url
+
+
+my_frame = tkinter.Frame(mywnd, bg='orange')
+my_frame.pack()
 
 
 mywnd.mainloop()
