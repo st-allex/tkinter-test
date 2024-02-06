@@ -14,6 +14,8 @@ sel=tk.StringVar() # string variable for the Combobox
 cb1=ttk.Combobox(my_w,values=months,width=7,
     textvariable=sel,font=font1)
 cb1.grid(row=1,column=1,padx=10, pady=20)
+sel.set(months[0])
+
 str1=tk.StringVar() # for entry1
 str2=tk.StringVar() # for entry2
 
